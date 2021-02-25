@@ -16,6 +16,7 @@ class App extends Component{
         [0, 4, 8]
         [2, 4, 6]
       ],
+
       playerOne: null,
       playerTwo: null,
       gameOver: false
@@ -43,6 +44,8 @@ return null
 //     let c1 = winningCheck[1]
 //     let c2 = winningCheck[2]
 // }
+
+
   render(){
     return(
       <>
@@ -50,7 +53,11 @@ return null
         <div className="gameboard">
         {this.state.squares.map((value, index) => {
           return (
+<<<<<<< HEAD
         <Square
+=======
+        <Square 
+>>>>>>> 02746faaef8862729e78b238a08adfec4a30d602
         value={ value }
         key={ index }
         />
