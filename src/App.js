@@ -1,94 +1,78 @@
 import React, { Component } from 'react'
-import Square from './components/square'
+import Square from './components/Square'
+import Restart from './components/Restart'
 import './App.css'
 class App extends Component{
   constructor(props){
     super(props)
     this.state = {
-      squares: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-      winningArray : [
-        [0, 1, 2]
-        [3, 4, 5]
-        [6, 7, 8]
-        [0, 3, 6]
-        [1, 4, 7]
-        [2, 5, 8]
-        [0, 4, 8]
-        [2, 4, 6]
-      ],
-
-      playerOne: null,
-      playerTwo: null,
-      gameOver: false
+      player: "🍆",
+      squares: ["", "", "", "", "", "", "", "", ""],
     }
-  }
+        this.squareClick= this.squareClick.bind(this)
+      }
+      onClick = (index) => {
+        if(this.state.squares[index]=== "") {
+          this.squareClick(index)
+        }
+      }
 
-  for (let i = 0; i < rows.length; i++) {
-    const [a, b, c] = rows[i]
-    // Check if the game board contains winning combination
-    if (boxes[a] && boxes[a] === boxes[b] && boxes[a] === boxes[c]) {
-        // Return the winner ('x' or 'o')
-        return boxes[a]
-    }
+restartGame = () => {
+  let squares = this.state
+  let player = this.state
+  squares = ["", "", "", "", "", "", "", "", ""]
+  player = "🍆"
+  this.setState({squares: squares, player: player})
 }
-// Otherwise do nothing
-return null
+squareClick = (index) => {
+  let squares = this.state.squares
+  let player = this.state.player
+  player= (player=="🍆") ? "🍑": "🍆"
+squares[index] = player
+  let winningArray= [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ]
+    for(let i=0; i<winningArray.length; i++) {
+      let winningCheck = winningArray[i]
+    let c0 = winningCheck[0]
+    let c1 = winningCheck[1]
+    let c2 = winningCheck[2]
+    if(squares[c0]!== "" && squares[c0]=== squares[c1] && squares[c1]=== squares[c2]) {
+      alert(`You Won ${player}!`)
+      this.restartGame()
+    } else if(squares.length=== 8) {
+      alert ("It's a Tie")
+    }
 
-
-// playerCombos() {
-// let  addedPlayer1 = (array) => {this.setState({playerOne: [...this.state.playerOne, array]})}
-// }if (addedPlayer1 === winningArray){}
-//   for(let i=0; i<winningArray.length; i++) {
-//     let winningCheck = winningArray[i]
-//     let c0 = winningCheck[0]
-//     let c1 = winningCheck[1]
-//     let c2 = winningCheck[2]
-// }
-
+    }
+    this.setState({
+      player: player, 
+      squares: squares
+    })
+  }
 
   render(){
     return(
       <>
-        <h1>Tic Tac Toe</h1>
-        <div className="gameboard">
+        <h1>Eggplants🍆 and Peaches🍑</h1>
+        <h2>The Game</h2>
+        <div id ="gameboard">
         {this.state.squares.map((value, index) => {
-          return (
-<<<<<<< HEAD
-        <Square
-=======
-        <Square 
->>>>>>> 02746faaef8862729e78b238a08adfec4a30d602
-        value={ value }
-        key={ index }
-        />
-          )
+          return (<div onClick = {()=> this.onClick(index)} id = "Square">{value}</div>)
         })}
         </div>
-      </>
+        
+      <Restart 
+      restartGame= {this.restartGame}/>
+        </>
     )
   }
 }
 export default App
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
