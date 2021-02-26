@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import Square from "./components/Square";
+import Images from "./components/Images";
 import Restart from "./components/Restart";
 import "./App.css";
 class App extends Component {
@@ -50,7 +50,7 @@ class App extends Component {
 				squares[c1] === squares[c2]
 			) {
 				alert(`You Won ${player}!`);
-				this.restartGame();
+				return this.restartGame();
 			} else if (squares.length === 8) {
 				alert("It's a Tie");
 			}
@@ -64,7 +64,7 @@ class App extends Component {
 	render() {
 		return (
 			<>
-				<h1>Eggplants🍆 and Peaches🍑</h1>
+				<h1>Eggplants🍆 VS Peaches🍑</h1>
 				<h2>The Game</h2>
 				<div id='gameboard'>
 					{this.state.squares.map((value, index) => {
@@ -78,8 +78,9 @@ class App extends Component {
 
 				<Restart restartGame={this.restartGame} />
 				<footer>
-					Created by : by two guys with too much time in their hands 😬
+					Created by: two guys with too much time in their hands 😬
 				</footer>
+				
 			</>
 		);
 	}
