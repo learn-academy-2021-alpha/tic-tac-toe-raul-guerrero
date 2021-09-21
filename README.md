@@ -31,3 +31,31 @@ This project will challenge your knowledge of React but should also be an exerci
 ### Stretch Goals:
 - As a user, I can see a notification that informs me whether it is currently player one's or player two's turn.
 - As a user, I can choose my marker (X, O, a color, an emoji, etc...).
+
+
+
+
+for winning conditions we need to store player index into empty array
+
+compare player click array with win conditions
+
+creat a winning array containing 8 winning arrays(done)
+
+loop through the winning arrays
+
+compare winning arrays to player click array
+
+compare other player click array to win arrays
+
+if players click equal winning array, alert, 
+win
+
+else if count striclty equals 9 alert tie
+
+else keep playing
+
+need restart game funtion
+
+if game is a win or tie we need it to reset
+
+we need a function thst doesnt allow a player to click opn the same button that another player clicked
