@@ -75,6 +75,10 @@ class App extends Component {
 						);
 					})}
 				</div>
+				<div className= 'peachDiv'>
+					<img src='https://aws1.discourse-cdn.com/smallgiantgames/original/3X/7/7/7741fe3e543f4570eeb9f13f8680981b93b97d54.gif' alt='peach twerking' className='peachDancing'/>
+					{/* <img src= 'https://i1.wp.com/res.cloudinary.com/owl3rty/image/upload/v1582432583/_patreon/2020/2020-02/telegram_stickers/Untitled_Artwork.gif?w=580&ssl=1' alt='another peach twerking' className = 'peachDancing' /> */}
+				</div>
 
 				<Restart restartGame={this.restartGame} />
 				<footer>
